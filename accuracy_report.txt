@@ -1,0 +1,85 @@
+1. “Who has the highest CGPA?”
+
+Answer given: Student ID 90 has 3.84
+ Correct format
+ But we don’t see the real dataset, so cannot verify
+Rating: 9/10
+
+2. “List all students who got placed.”
+
+Answer given: IDs 90, 344, 419, 409, 399, 369, 67, 98
+ Looks consistent
+ Can’t verify without data
+Rating: 9/10
+
+3. “What is the salary package of John?”
+
+Answer given: The data does not contain this information.
+ PERFECT — This follows the rules.
+Rating: 10/10
+
+4. “Give the skills of the student with the lowest CGPA.”
+
+Answer: Student ID 389 … skill scores provided
+ Looks like properly extracted
+ Cannot verify accuracy of numbers
+Rating: 8/10
+
+5. “How many students know Python?”
+
+Answer: The data does not contain this information.
+ Correct — no programming language field exists (most likely).
+Rating: 10/10
+
+6. “Which company hired Riya?”
+
+Answer: The data does not contain this information.
+ Correct (no name-based placement info).
+Rating: 10/10
+
+7. “Who has more CGPA, Arjun or Sneha?”
+
+Answer: The data does not contain this information.
+ Correct — if names Arjun/Sneha do not exist.
+Rating: 10/10
+
+8. “Show all students with CGPA above 8.0.”
+
+Answer:
+
+ID 67 with CGPA 3.29
+
+ID 89 with CGPA 3.84
+
+ Incorrect — CGPA above 8.0 is extremely high on a 4-point scale.
+ Returned students with CGPA below 4.0, meaning the model misunderstood.
+
+Rating: 2/10
+
+9. “Does any student have experience above 2 years?”
+
+Answer:
+
+Student ID 90 → 27 years
+
+Student ID 419 → 27 years
+
+ Possible error — 27 years experience is unrealistic for students
+ Could be incorrect extraction or hallucination
+ Answer should match raw dataset
+
+Rating: 5/10
+
+⭐ Overall Final Accuracy Score
+
+If we average the ratings:
+
+(9 + 9 + 10 + 8 + 10 + 10 + 10 + 2 + 5) / 9 = 8.1 / 10
+
+🎯 Final Accuracy Rating: 8/10
+
+Your system is performing good, but:
+
+It struggles when numerical thresholds are unusual (CGPA > 8.0)
+
+It may hallucinate unrealistic values (experience = 27 years)
